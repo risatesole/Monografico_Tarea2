@@ -113,10 +113,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+# static files
+CDN_HOST = os.getenv("DJANGO_CDN_URL")
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
+if not DEBUG:
+    STATIC_URL = f"https://{CDN_HOST}/"
+else:
+    STATIC_URL = '/static/'
 
-STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
