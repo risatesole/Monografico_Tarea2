@@ -1,6 +1,104 @@
-{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AvantKeel | Employee Application</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static '/styles/pages/app.css' %}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">AvantKeel</a>
+      <nav><span style="color: #666">Admin Portal</span></nav>
+    </header>
 
-{% block content %}
-Welcome to the app page.
+    <main class="content-wrapper">
+      <h2>Employee Application</h2>
 
-{% endblock %}
+      <form class="app-form" id="employeeForm">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="Henry" required />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Ramirez" required />
+        </div>
+        <div class="field">
+          <label>Role</label>
+          <select id="role">
+            <option value="Developer">Developer</option>
+            <option value="Designer">Designer</option>
+            <option value="Manager">Manager</option>
+            <option value="Ethics Officer">Ethics Officer</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="h.ramirez@avantkeel.com"
+            required
+          />
+        </div>
+        <button type="submit" class="submit-btn">Add to View List</button>
+      </form>
+
+      <h2>Review List</h2>
+      <div class="table-container">
+        <table id="employeeTable">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Role</th>
+              <th>Email Address</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 AvantKeel Internal Systems</p>
+    </footer>
+
+    <script>
+      const form = document.getElementById("employeeForm");
+      const tableBody = document.querySelector("#employeeTable tbody");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevents the page from refreshing
+
+        // Get values
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const role = document.getElementById("role").value;
+        const email = document.getElementById("email").value;
+
+        // Create row
+        const newRow = `
+                <tr>
+                    <td>${fname}</td>
+                    <td>${lname}</td>
+                    <td>${role}</td>
+                    <td>${email}</td>
+                </tr>
+            `;
+
+        // Append to table
+        tableBody.innerHTML += newRow;
+
+        // Clear form
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
