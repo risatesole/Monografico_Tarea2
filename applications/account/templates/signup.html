@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AvantKeel | Sign Up</title>
+    <title>{{ title }} | Sign Up</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -15,25 +15,34 @@
     <header>
       <a href="#" class="logo">AvantKeel</a>
       <nav>
-        <a href="#" style="text-decoration: none; color: #000">Sign In</a>
+        <a href="/signin/" style="text-decoration: none; color: #000">Sign In</a>
       </nav>
     </header>
 
     <main class="content-wrapper">
+      {% if messages %}
+        <ul style="color: red; list-style: none;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
       <div class="signup-form">
         <h2>Sign Up</h2>
-        <form>
+        <form method="POST">
+          {% csrf_token %}
           <div class="field">
             <label>Full Name</label>
-            <input type="text" required />
+            <input type="text" name="full_name" required />
           </div>
           <div class="field">
             <label>Email</label>
-            <input type="email" required />
+            <input type="email" name="email" required />
           </div>
           <div class="field">
             <label>Password</label>
-            <input type="password" required />
+            <input type="password" name="password" required />
           </div>
           <button type="submit" class="submit-btn">Create Account</button>
         </form>
