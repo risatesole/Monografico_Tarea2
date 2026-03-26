@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'applications.employeemanager',
     'applications.account',
     'components.core.button.apps.config',
+    'components.core.header.apps.config',
 ]
 
 MIDDLEWARE = [
