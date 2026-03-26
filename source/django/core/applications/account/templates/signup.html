@@ -15,17 +15,19 @@
     <header>
       <a href="/" class="logo">AvantKeel</a>
       <nav>
-        <a href="/signin/" style="text-decoration: none; color: #000">Sign In</a>
+        <a href="/signin/" style="text-decoration: none; color: #000"
+          >Sign In</a
+        >
       </nav>
     </header>
 
     <main class="content-wrapper">
       {% if messages %}
-        <ul style="color: red; list-style: none;">
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
+      <ul style="color: red; list-style: none">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
       {% endif %}
 
       <div class="signup-form">

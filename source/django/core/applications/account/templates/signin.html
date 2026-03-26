@@ -15,17 +15,19 @@
     <header>
       <a href="/" class="logo">AvantKeel</a>
       <nav>
-        <a href="/signup/" style="text-decoration: none; color: #000">Sign Up</a>
+        <a href="/signup/" style="text-decoration: none; color: #000"
+          >Sign Up</a
+        >
       </nav>
     </header>
 
     <main class="content-wrapper">
       {% if messages %}
-        <ul style="color: red; list-style: none;">
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
+      <ul style="color: red; list-style: none">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
       {% endif %}
 
       <div class="signin-form">
@@ -59,14 +61,15 @@
             <a href="#">Forgot password?</a>
           </div>
 
-          <button type="submit" class="submit-btn">
-            Sign In
-          </button>
+          <button type="submit" class="submit-btn">Sign In</button>
         </form>
 
         <p style="margin-top: 25px; text-align: center">
           Don't have an account?
-          <a href="/signup/" style="color: #29a8e0; text-decoration: none; font-weight: bold">
+          <a
+            href="/signup/"
+            style="color: #29a8e0; text-decoration: none; font-weight: bold"
+          >
             Sign Up
           </a>
         </p>
