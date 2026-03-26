@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "../../"
+    },
+    {
+      "name": "django-core",
+      "path": "../../source/django/core"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true
+    }
+  }
+}
