@@ -111,11 +111,3 @@
   table tr:nth-child(even) {
       background-color: #fcfcfc;
   }
-
-  footer {
-      background-color: #162c46;
-      color: #fff;
-      padding: 30px;
-      text-align: center;
-      font-size: 13px;
-  }
