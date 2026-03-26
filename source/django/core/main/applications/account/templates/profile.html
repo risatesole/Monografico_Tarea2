@@ -1,16 +1,28 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{ title }} | AvantKeel</title>
     {% load static %}
-</head>
-<body>
+  </head>
+  <body>
     <h1>{{ user.first_name }} {{ user.last_name }}</h1>
     <p><strong>Username:</strong> {{ user.username }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
     <p><strong>Joined:</strong> {{ user.date_joined }}</p>
     <p><strong>Last login:</strong> {{ user.last_login }}</p>
-    <a href="/signout/">Sign Out</a>
-</body>
+
+    <!-- prettier-ignore -->
+    {% include "core/button.html" with label="Sign Out" size="medium" variant="primary" %}
+
+    <script>
+      document.querySelectorAll("button").forEach((btn) => {
+        if (btn.textContent.trim() === "Sign Out") {
+          btn.addEventListener("click", () => {
+            window.location.href = "/signout/";
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

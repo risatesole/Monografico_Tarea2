@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'core/styles/button.css' %}">
+
+<button
+    type="{{ type|default:'button' }}"
+    class="
+        {% if size == 'small' %}btn-small{% elif size == 'large' %}btn-large{% else %}btn-medium{% endif %}
+        {% if variant %} btn-{{ variant }}{% endif %}
+    "
+    {% if disabled %}disabled{% endif %}
+>
+    {% if icon %}
+        <span>{{ icon|safe }}</span>
+    {% endif %}
+    {{ label|default:"Button" }}
+</button>

@@ -1,0 +1,63 @@
+/* Core Button Styles - cohesive with main app */
+.btn-small {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+}
+.btn-medium {
+    width: auto;          
+    max-width: 250px;     
+    padding: 8px 12px;
+    background-color: #29a8e0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+.btn-large {
+    padding: 16px 24px;
+    font-size: 1.125rem;
+}
+
+.btn-primary {
+    background-color: #29a8e0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #1f7fa3;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #162c46;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-danger {
+    background-color: #e02424;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #b71c1c;
+}
