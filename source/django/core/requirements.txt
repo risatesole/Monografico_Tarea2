@@ -1,0 +1,9 @@
+# Core project dependencies
+asgiref==3.11.1
+django==6.0.3
+psycopg==3.3.3
+psycopg-binary==3.3.3
+python-dotenv==1.2.2
+sqlparse==0.5.5
+typing-extensions==4.15.0
+tzdata==2025.3

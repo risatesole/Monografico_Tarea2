@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'applications.core',
     'applications.account',
-    'core_button.apps.config'
+    'components.core.button.apps.config',
 ]
 
 MIDDLEWARE = [
