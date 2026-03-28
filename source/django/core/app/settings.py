@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'components.core.button.apps.config',
     'components.core.header.apps.config',
     'components.core.footer.apps.config',
+    'rest_framework'
     
 ]
 
