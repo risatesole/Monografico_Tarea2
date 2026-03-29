@@ -109,4 +109,4 @@ Para hacer deployment de este projecto le presentamos las siguientes guias para 
 - Para instalar dependencias en otra máquina:
 - para colaborar crear un fork de el projecto, hacer commit de los cambios y crear una pull request o hablar con uno de los colaboradores de este projecto.
 
-- no se ve el css en local: poner el archivo .env en entorno de desarrollo para probar en local
+- no se ve el css en local: poner el archivo .env en entorno de desarrollo para probar en local.
