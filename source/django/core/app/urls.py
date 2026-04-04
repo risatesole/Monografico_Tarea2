@@ -5,6 +5,7 @@ from django.shortcuts import render
 from applications.core.views import home
 from applications.employeemanager.views import employeemanager
 from applications.core.views import hello_world
+from server.views import hello_view
 
 def applicationPage(request):
     return render(request, 'pages/app.html')
@@ -27,6 +28,7 @@ urlpatterns = [
   
     # tarea 1 monografico
     path("app/", include("applications.employeemanager.urls")),
-
+    
+    path('api/', include('server.urls')),
 
 ]

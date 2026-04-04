@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'applications.core',
     'applications.employeemanager',
     'applications.account',
+    'server',
 
     
     'components.core.button.apps.config',
