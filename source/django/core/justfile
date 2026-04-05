@@ -70,3 +70,7 @@ createadminuser:
     source ./.venv/Scripts/activate
     # uv run python manage.py migrate
     uv run python manage.py createsuperuser
+
+# access django shell
+djangohell:
+    uv run python manage.py shell
