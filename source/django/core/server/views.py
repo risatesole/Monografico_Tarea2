@@ -74,7 +74,7 @@ def handleSignup(req: Request, res: Response):
         }
     }
 
-    res.json( fieldErrorResponse , status=200)
+    res.json( fieldErrorResponse , status=400)
 
 
 @csrf_exempt
