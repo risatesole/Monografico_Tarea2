@@ -3,6 +3,7 @@ from django.db import IntegrityError
 from django.contrib.auth.hashers import make_password
 from ...models import User
 
+# todo: inteimplement utils/validators
 
 def handleSignup(req: Request, res: Response):
     try:
