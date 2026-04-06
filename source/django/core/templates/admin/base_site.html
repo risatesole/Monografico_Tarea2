@@ -1,0 +1,60 @@
+{% extends "admin/base.html" %} {% block extrastyle %} {{ block.super }}
+<style>
+  :root {
+    --primary-color: #3498db;
+    --main-padding: 15px;
+    --border-radius: 8px;
+
+    --primary-lighttheme-color: white;
+    --primary-darktheme-color: black;
+    --primary-autotheme-color: green;
+
+    --secundary-lighttheme-color: black;
+    --secundary-darktheme-color: white;
+    --secundary-autotheme-color: black;
+
+    --tertiary-lighttheme-color: black;
+    --tertiary-darktheme-color: black;
+    --tertiary-autotheme-color: black;
+
+    --brand-color-lighttheme-color: white;
+    --brand-color-darktheme: white;
+    --brand-color-autotheme: black;
+  }
+
+  html[data-theme="light"] #header {
+    background: var(--primary-lighttheme-color);
+    color: var(--secundary-lighttheme-color);
+  }
+
+  html[data-theme="dark"] #header {
+    background: var(--primary-darktheme-color);
+    color: var(--secundary-darktheme-color);
+  }
+
+  html[data-theme="auto"] #header {
+    background: var(--primary-autotheme-color);
+    color: var(--secundary-autotheme-color) !important;
+  }
+
+  html[data-theme="dark"] #branding
+  html[data-theme="auto"] #branding {
+    float: none !important;
+  }
+
+  html[data-theme="dark"] #branding h1 a,
+  html[data-theme="auto"] #branding h1 a {
+    color: var(--brand-color-autotheme) !important;
+    font-size: 24px !important;
+    text-decoration: none !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+</style>
+{% endblock %} {% block branding %}
+<h1 id="site-name">
+  <a href="{% url 'admin:index' %}">
+    {{ site_header|default:_('Django administration') }}
+  </a>
+</h1>
+{% endblock %}

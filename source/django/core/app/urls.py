@@ -9,8 +9,8 @@ from server.views import hello_view
 
 # django admin panel customization
 admin.site.site_header = "AvantKeel Monografico Admin Panel"
-admin.site.site_title = "AvantKeel Monografico Admin Panel"
-admin.site.index_title = "Project Administration"
+admin.site.site_title = "AvantKeel"
+admin.site.index_title = "Admin panel"
 
 
 def applicationPage(request):
