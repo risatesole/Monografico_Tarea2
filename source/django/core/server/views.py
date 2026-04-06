@@ -13,11 +13,7 @@ def signup(request):
         req = Request(request);
         res = Response()
         try:
-            # body = json.loads(request.body)
-            answare = handleSignup(req,res)
-
             return JsonResponse(res.data,status=res.status)
-
         except json.JSONDecodeError:
             return JsonResponse({
                 "error": "Invalid JSON"
