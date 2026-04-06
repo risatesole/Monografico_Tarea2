@@ -74,3 +74,9 @@ createadminuser:
 # access django shell
 djangohell:
     uv run python manage.py shell
+
+# create migrations for models
+createmigration:
+    uv run python manage.py makemigrations # Generate migrations
+    uv run python manage.py migrate # apply the migration
+
