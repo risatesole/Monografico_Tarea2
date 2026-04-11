@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TeamBase</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'core/styles/home.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">TeamBase</div>
+        <nav>
+          <a href="#">Como Funciona</a>
+          <a href="/about">Acerca de</a>
+          <a href="/app" class="btn">Abrir App</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Gestión de equipo interno</h2>
+          <h1>Organiza tus colaboradores con una estructura clara</h1>
+          <p>
+            Un sistema sencillo para gestionar roles, responsabilidades y datos
+            internos del equipo con claridad y consistencia.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="/app" class="btn">Ir a Applicacion →</a>
+            <a href="/about" class="btn-secondary">Acerca de</a>
+          </div>
+        </div>
+
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
+            alt="Team working"
+          />
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

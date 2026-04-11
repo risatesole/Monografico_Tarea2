@@ -11,7 +11,7 @@ def home(request):
     context = {
         "title": "AvantKeel"
     }
-    return render(request, 'core/home.html', context)
+    return render(request, 'core/home_ES.html', context)
 
 def learnmore(request):
     return render(request, 'core/about_ES.html')
