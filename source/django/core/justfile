@@ -86,3 +86,6 @@ showmigrations:
 
 deleteproductiondatabasewarning:
     uv run python manage.py flush
+
+test:
+    uv run python manage.py test
