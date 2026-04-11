@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamBase | Team Todos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #1f2937;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      border-right: 1px solid #f3f4f6;
+      padding: 20px;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+
+    .list-item {
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-bottom: 6px;
+      user-select: none;
+    }
+
+    .list-item:hover {
+      background: #fafafa;
+    }
+
+    .active {
+      background: #f3f4f6;
+      font-weight: 500;
+    }
+
+    .collab-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #1f2937;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .collab-btn:hover {
+      background: #111827;
+    }
+
+    /* MAIN */
+    .main {
+      flex: 1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1f2937;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      padding: 8px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: white;
+      font-size: 13px;
+      cursor: pointer;
+      color: #1f2937;
+    }
+
+    .back-btn:hover {
+      background: #fafafa;
+    }
+
+    .content-wrapper {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #1f2937;
+    }
+
+    .btn {
+      padding: 10px 14px;
+      background: #1f2937;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #111827;
+    }
+
+    .list {
+      border: 1px solid #f3f4f6;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 12px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 14px;
+    }
+
+    .task:first-child {
+      border-top: none;
+    }
+
+    .task:hover {
+      background: #fafafa;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .status {
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      color: #6b7280;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      width: 320px;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .modal-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .user {
+      padding: 10px;
+      border: 1px solid #f3f4f6;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .close {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #f3f4f6;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+
+    .user-card {
+  position: absolute;
+  bottom: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #f3f4f6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1f2937;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.user-role {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="brand">TeamBase</div>
+
+  <div class="sidebar-title">LISTS</div>
+
+  <div class="list-item active" onclick="setFilter(this, 'all')">All Tasks</div>
+  <div class="list-item" onclick="setFilter(this, 'mine')">My Tasks</div>
+  <div class="list-item" onclick="setFilter(this, 'progress')">In Progress</div>
+  <div class="list-item" onclick="setFilter(this, 'done')">Completed</div>
+
+  <button class="collab-btn" onclick="openModal()">
+    View Collaborators
+  </button>
+
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+<header>
+  <a href="/" class="logo">TeamBase</a>
+
+  <!-- BACK BUTTON -->
+  <button class="back-btn" onclick="goBackToTeams()">
+    ← Back to Teams
+  </button>
+</header>
+
+<main class="content-wrapper">
+
+  <h2>Team Todo List</h2>
+
+  <div class="top-bar">
+    <input type="text" placeholder="Add a new task..." />
+    <button class="btn">Add Task</button>
+  </div>
+
+  <div class="list">
+
+    <div class="task">
+      <div>
+        Set up project structure
+        <div class="meta">by Henry</div>
+      </div>
+      <div class="status">To Do</div>
+    </div>
+
+    <div class="task">
+      <div>
+        Define team roles
+        <div class="meta">by Alex</div>
+      </div>
+      <div class="status">In Progress</div>
+    </div>
+
+    <div class="task">
+      <div>
+        Initial UI layout
+        <div class="meta">by Maria</div>
+      </div>
+      <div class="status">Done</div>
+    </div>
+
+  </div>
+
+</main>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="modal-title">Collaborators</div>
+
+    <div class="user">Henry (You)</div>
+    <div class="user">Alex</div>
+    <div class="user">Maria</div>
+
+    <button class="close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- USER FOOTER -->
+<div class="user-card">
+  <div class="avatar">H</div>
+
+  <div class="user-info">
+    <div class="user-name">Henry Ramirez</div>
+    <div class="user-role">Team Member</div>
+  </div>
+</div>
+
+
+
+
+<script>
+  let currentFilter = "all";
+
+  function setFilter(el, filter) {
+    document.querySelectorAll(".list-item").forEach(i => i.classList.remove("active"));
+    el.classList.add("active");
+    currentFilter = filter;
+  }
+
+  function openModal() {
+    document.getElementById("modal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  function goBackToTeams() {
+    // later this becomes navigation (router / page redirect)
+    window.location.href = "/teams";
+  }
+</script>
+
+</body>
+</html>

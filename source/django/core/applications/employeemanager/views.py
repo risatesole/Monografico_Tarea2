@@ -17,6 +17,7 @@ def employeemanager(request):
     employees = Employee.objects.filter(submitted_by=request.user)
 
     return render(request, "employeemanager/employeemanager.html", {
+    # return render(request, "employeemanager/team-todo.html", {
         "title": "AvantKeel",
         "employees": employees
     })
