@@ -310,34 +310,36 @@
         <h2>Team Todo List</h2>
 
         <div class="top-bar">
-          <input type="text" placeholder="Add a new task..." />
-          <button class="btn">Add Task</button>
+          <form method="POST" style="display: contents">
+            {% csrf_token %}
+            <input
+              type="text"
+              name="title"
+              placeholder="Add a new task..."
+              required
+            />
+            <button class="btn" type="submit">Add Task</button>
+          </form>
         </div>
 
         <div class="list">
+          {% for task in todos %}
           <div class="task">
             <div>
-              Set up project structure
-              <div class="meta">by Henry</div>
+              {{ task.title }}
+              <div class="meta">by {{ task.assigned_to.username }}</div>
             </div>
-            <div class="status">To Do</div>
-          </div>
 
-          <div class="task">
-            <div>
-              Define team roles
-              <div class="meta">by Alex</div>
+            <div class="status">
+              {% if task.is_completed %} Done {% else %} To Do {% endif %}
             </div>
-            <div class="status">In Progress</div>
           </div>
-
+          {% empty %}
           <div class="task">
-            <div>
-              Initial UI layout
-              <div class="meta">by Maria</div>
-            </div>
-            <div class="status">Done</div>
+            <div>No tasks yet</div>
+            <div class="status">-</div>
           </div>
+          {% endfor %}
         </div>
       </main>
     </div>
@@ -348,8 +350,6 @@
         <div class="modal-title">Collaborators</div>
 
         <div class="user">Henry (You)</div>
-        <div class="user">Alex</div>
-        <div class="user">Maria</div>
 
         <button class="close" onclick="closeModal()">Close</button>
       </div>
